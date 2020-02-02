@@ -34,25 +34,21 @@ body.dm {
 
 .dm-hand {
   background-color: #468f9e;
-  content: "👋";
   border: 0.5vmin solid whitesmoke;
 }
 
 .dm-foot {
   background-color: #d15f47;
-  content: "🦶";
   border: 0.5vmin solid whitesmoke;
 }
 
 .dm-tie {
   background-color: #9e7e5b;
-  content: "😈";
   border: 0.5vmin solid whitesmoke;
 }
 
 .dm-null {
   background-color: #3e3e3e;
-  content: "";
   border: 0.5vmin solid whitesmoke;
 }
 

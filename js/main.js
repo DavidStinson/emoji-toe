@@ -20,7 +20,8 @@ let turn, board, player, winner
 -----------------------------------------------*/
 
 let cells = document.querySelectorAll(".cell")
-// Pull these elements solely to style them
+// Pull these elements solely to style them.
+// They won't be used for game logic.
 let body = document.querySelector("body")
 
 /*-----------------------------------------------
@@ -88,6 +89,8 @@ function checkForWin() {
   return 0
 }
 
+// Added a preRender function to greatly simplify the render function
+// ALL functions requiring rendering call this funciton
 function preRender() {
   colorMode.dark ? render("dm") : render("lm")
 }
@@ -95,16 +98,13 @@ function preRender() {
 function render(color) {
   body.setAttribute("class", color)
   cells.forEach(function(cell, idx) {
-    if (board[idx] === -1) {
-      cell.setAttribute("class", `${color}-foot`)
-    } else if (board[idx] === 1) {
-      cell.setAttribute("class", `${color}-hand`)
-    } else if (board[idx] === "T") {
-      cell.setAttribute("class", `${color}-tie`)
-    } else {
-      cell.setAttribute("class", `${color}-null`)
-    }
-    cell.textContent = cell.getAttribute("content")
+    board[idx] === -1
+      ? cell.setAttribute("class", `${color}-foot`)
+      : board[idx] === 1
+      ? cell.setAttribute("class", `${color}-hand`)
+      : board[idx] === "T"
+      ? cell.setAttribute("class", `${color}-tie`)
+      : cell.setAttribute("class", `${color}-null`)
   })
 }
 
