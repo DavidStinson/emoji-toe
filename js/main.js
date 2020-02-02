@@ -1,37 +1,8 @@
 /*-----------------------------------------------
-=================== Constants ===================
------------------------------------------------*/
-
-const darkModeColor = {
-  null: "white",
-  "1": "#468F9E",
-  "-1": "#D15F47",
-  T: "#9E7E5B",
-}
-
-/*-----------------------------------------------
 =================== Variables ===================
 -----------------------------------------------*/
 
-let turn, board, player, winner, currentPlayerName
-
-/*-----------------------------------------------
-=========== Cached Element References ===========
------------------------------------------------*/
-
-let cells = document.querySelectorAll(".cell")
-let message = document.querySelector("#message")
-// Pull these elements solely to style them.
-// They won't be used for game logic.
-let body = document.querySelector("body")
-let header = document.querySelector("h1")
-
-/*-----------------------------------------------
-================ Event Listeners ================
------------------------------------------------*/
-
-// This is where you should put the event listener
-// for a mouse-click
+let turn, board, player, winner, playerName
 
 /*-----------------------------------------------
 ==================== Objects ====================
@@ -52,21 +23,52 @@ let colorMode = {
 }
 
 /*-----------------------------------------------
+=========== Cached Element References ===========
+-----------------------------------------------*/
+
+let cells = document.querySelectorAll(".cell")
+let message = document.querySelector("#message")
+let gameBoard = document.querySelector("#board")
+let reset = document.querySelector("button")
+// Pull these elements solely to style them.
+// They won't be used for game logic.
+let body = document.querySelector("body")
+let header = document.querySelector("h1")
+
+/*-----------------------------------------------
+================ Event Listeners ================
+-----------------------------------------------*/
+
+gameBoard.addEventListener("click", handleGameBoardClick)
+reset.addEventListener("click", init)
+
+/*-----------------------------------------------
 =================== Functions ===================
 -----------------------------------------------*/
 
 function init() {
   turn = 1
   player = -1
-  currentPlayerName = "Toes"
+  playerName = "Toes"
   board = [null, null, null, null, null, null, null, null, null]
   winner = null
   preRender()
 }
 
-player === -1 ? (currentPlayerName = "Toes") : (currentPlayerName = "Fingers")
-winner = checkForWin()
-if (winner) fillBoardWithWinner(winner)
+function handleGameBoardClick(evnt) {
+  // Gets the cell number from the target cell,
+  // by removing "cell" from the id
+  let idx = evnt.target.id.replace("cell", "")
+  if (board[idx] === null) {
+    board[idx] = player
+    player *= -1
+    player === -1 ? (playerName = "Toes") : (playerName = "Fingers")
+    winner = checkForWin()
+    if (winner) fillBoardWithWinner(winner)
+    turn++
+  }
+  preRender()
+}
 
 function checkForWin() {
   if (
@@ -94,15 +96,15 @@ function checkForWin() {
   ) {
     return -1
   }
-  if (turn === 9) {
+  if (turn === board.length) {
     return 2
   }
   return 0
 }
 
 function fillBoardWithWinner(winner) {
-  for (cell of board) {
-    cell = winner
+  for (let idx = 0; idx < board.length; idx++) {
+    board[idx] = winner
   }
 }
 
@@ -138,7 +140,7 @@ function msgRender() {
       ? (message.textContent = "Fingers win!")
       : (message.textContent = "Oh no, it's a tie!")
   } else {
-    message.textContent = `${currentPlayerName}, it's your turn!`
+    message.textContent = `${playerName}, it's your turn!`
   }
 }
 

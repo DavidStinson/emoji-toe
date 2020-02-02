@@ -48,21 +48,25 @@ h1.dm {
 .dm-hand {
   background-color: #468f9e;
   border-color: #f5f5f5;
+  cursor: not-allowed;
 }
 
 .dm-foot {
   background-color: #d15f47;
   border-color: #f5f5f5;
+  cursor: not-allowed;
 }
 
 .dm-tie {
   background-color: #9e7e5b;
   border-color: #f5f5f5;
+  cursor: not-allowed;
 }
 
 .dm-null {
   background-color: #3e3e3e;
   border-color: #f5f5f5;
+  cursor: pointer;
 }
 
 /*-----------------------------------------------
@@ -81,58 +85,62 @@ h1.lm {
 .lm-hand {
   background-color: #142b3d;
   border-color: #3e3e3e;
+  cursor: not-allowed;
 }
 
 .lm-foot {
   background-color: #8a3e3b;
   border-color: #3e3e3e;
+  cursor: not-allowed;
 }
 
 .lm-tie {
   background-color: #9e7e5b;
   border-color: #3e3e3e;
+  cursor: not-allowed;
 }
 
 .lm-null {
   background-color: #f5f5f5;
   border-color: #3e3e3e;
+  cursor: pointer;
 }
 
 /*-----------------------------------------------
 ======= Normalize width of outside edges ========
 -----------------------------------------------*/
-#sq0 {
+#cell0 {
   border-top-width: 1vmin;
   border-left-width: 1vmin;
 }
 
-#sq1 {
+#cell1 {
   border-top-width: 1vmin;
 }
 
-#sq2 {
+#cell2 {
   border-top-width: 1vmin;
   border-right-width: 1vmin;
 }
 
-#sq3 {
+#cell3 {
   border-left-width: 1vmin;
 }
 
-#sq5 {
+#cell5 {
   border-right-width: 1vmin;
 }
 
-#sq6 {
+#cell6 {
   border-left-width: 1vmin;
   border-bottom-width: 1vmin;
 }
 
-#sq7 {
+#cell7 {
   border-bottom-width: 1vmin;
 }
 
-#sq8 {
+#cell8 {
   border-bottom-width: 1vmin;
   border-right-width: 1vmin;
 }
