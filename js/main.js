@@ -13,17 +13,18 @@ const darkModeColor = {
 =================== Variables ===================
 -----------------------------------------------*/
 
-let turn, board, player, winner
+let turn, board, player, winner, currentPlayerName
 
 /*-----------------------------------------------
 =========== Cached Element References ===========
 -----------------------------------------------*/
 
 let cells = document.querySelectorAll(".cell")
+let message = document.querySelector("#message")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
 let body = document.querySelector("body")
-let grid = document.querySelectorAll("div")
+let header = document.querySelector("h1")
 
 /*-----------------------------------------------
 ================ Event Listeners ================
@@ -55,13 +56,18 @@ let colorMode = {
 -----------------------------------------------*/
 
 function init() {
-  player = turn = 1
+  turn = 1
+  player = -1
+  currentPlayerName = "Toes"
   board = [null, null, null, null, null, null, null, null, null]
   winner = null
   preRender()
 }
 
-/// tktk HEY! you might have problems here! If you do, ykwtd.
+player === -1 ? (currentPlayerName = "Toes") : (currentPlayerName = "Fingers")
+winner = checkForWin()
+if (winner) fillBoardWithWinner(winner)
+
 function checkForWin() {
   if (
     board[0] + board[1] + board[2] === 3 ||
@@ -72,8 +78,9 @@ function checkForWin() {
     board[2] + board[5] + board[8] === 3 ||
     board[0] + board[4] + board[8] === 3 ||
     board[6] + board[4] + board[2] === 3
-  )
+  ) {
     return 1
+  }
 
   if (
     board[0] + board[1] + board[2] === -3 ||
@@ -84,11 +91,22 @@ function checkForWin() {
     board[2] + board[5] + board[8] === -3 ||
     board[0] + board[4] + board[8] === -3 ||
     board[6] + board[4] + board[2] === -3
-  )
+  ) {
     return -1
-
+  }
+  if (turn === 9) {
+    return 2
+  }
   return 0
 }
+
+function fillBoardWithWinner(winner) {
+  for (cell of board) {
+    cell = winner
+  }
+}
+
+//================== Renderers ==================
 
 // Added a preRender function to greatly simplify the render function
 // ALL functions requiring rendering call this funciton
@@ -98,15 +116,30 @@ function preRender() {
 
 function render(color) {
   body.setAttribute("class", color)
+  header.setAttribute("class", color)
+  msgRender()
   cells.forEach(function(cell, idx) {
     board[idx] === -1
       ? (cell.setAttribute("class", `${color}-foot`), (cell.textContent = "🦶"))
       : board[idx] === 1
       ? (cell.setAttribute("class", `${color}-hand`), (cell.textContent = "👋"))
-      : board[idx] === "T"
+      : board[idx] === 2
       ? (cell.setAttribute("class", `${color}-tie`), (cell.textContent = "👿"))
       : (cell.setAttribute("class", `${color}-null`), (cell.textContent = ""))
   })
+}
+
+// functionalized message rendering with msgRender function
+function msgRender() {
+  if (winner) {
+    winner === -1
+      ? (message.textContent = "Toes win!")
+      : winner === 1
+      ? (message.textContent = "Fingers win!")
+      : (message.textContent = "Oh no, it's a tie!")
+  } else {
+    message.textContent = `${currentPlayerName}, it's your turn!`
+  }
 }
 
 init()
