@@ -23,6 +23,7 @@ let cells = document.querySelectorAll(".cell")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
 let body = document.querySelector("body")
+let grid = document.querySelectorAll("div")
 
 /*-----------------------------------------------
 ================ Event Listeners ================
@@ -99,12 +100,12 @@ function render(color) {
   body.setAttribute("class", color)
   cells.forEach(function(cell, idx) {
     board[idx] === -1
-      ? cell.setAttribute("class", `${color}-foot`)
+      ? (cell.setAttribute("class", `${color}-foot`), (cell.textContent = "🦶"))
       : board[idx] === 1
-      ? cell.setAttribute("class", `${color}-hand`)
+      ? (cell.setAttribute("class", `${color}-hand`), (cell.textContent = "👋"))
       : board[idx] === "T"
-      ? cell.setAttribute("class", `${color}-tie`)
-      : cell.setAttribute("class", `${color}-null`)
+      ? (cell.setAttribute("class", `${color}-tie`), (cell.textContent = "👿"))
+      : (cell.setAttribute("class", `${color}-null`), (cell.textContent = ""))
   })
 }
 

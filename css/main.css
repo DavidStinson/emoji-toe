@@ -18,9 +18,10 @@ section {
 }
 
 div {
-  font-size: 15vmin;
+  font-size: 13vmin;
   text-align: center;
   vertical-align: middle;
+  border: 0.5vmin solid;
 }
 
 button {
@@ -34,22 +35,22 @@ body.dm {
 
 .dm-hand {
   background-color: #468f9e;
-  border: 0.5vmin solid whitesmoke;
+  border-color: #f5f5f5;
 }
 
 .dm-foot {
   background-color: #d15f47;
-  border: 0.5vmin solid whitesmoke;
+  border-color: #f5f5f5;
 }
 
 .dm-tie {
   background-color: #9e7e5b;
-  border: 0.5vmin solid whitesmoke;
+  border-color: #f5f5f5;
 }
 
 .dm-null {
   background-color: #3e3e3e;
-  border: 0.5vmin solid whitesmoke;
+  border-color: #f5f5f5;
 }
 
 /*-----------------------------------------------
