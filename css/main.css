@@ -2,19 +2,62 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: gray;
+  background-color: #3e3e3e;
+  color: whitesmoke;
+  text-align: center;
 }
 
 section.board {
   display: grid;
-  grid-template-rows: repeat(3, 10vmin);
-  grid-template-columns: repeat(3, 10vmin);
+  grid-template-rows: repeat(3, 20vmin);
+  grid-template-columns: repeat(3, 20vmin);
   grid-gap: 0vmin;
+  margin: 5vmin auto;
 }
 
 div {
-  border: 3px solid black;
-  font-size: 8vmin;
+  border: 0.5vmin solid whitesmoke;
+  background-color: #d15f47;
+  font-size: 15vmin;
   text-align: center;
   vertical-align: middle;
+}
+
+/*-----------------------------------------------
+======= Normalize width of outside edges ========
+-----------------------------------------------*/
+#sq0 {
+  border-top-width: 1vmin;
+  border-left-width: 1vmin;
+}
+
+#sq1 {
+  border-top-width: 1vmin;
+}
+
+#sq2 {
+  border-top-width: 1vmin;
+  border-right-width: 1vmin;
+}
+
+#sq3 {
+  border-left-width: 1vmin;
+}
+
+#sq5 {
+  border-right-width: 1vmin;
+}
+
+#sq6 {
+  border-left-width: 1vmin;
+  border-bottom-width: 1vmin;
+}
+
+#sq7 {
+  border-bottom-width: 1vmin;
+}
+
+#sq8 {
+  border-bottom-width: 1vmin;
+  border-right-width: 1vmin;
 }

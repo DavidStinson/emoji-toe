@@ -1,25 +1,68 @@
-/*------Constants------*/
+/*-----------------------------------------------
+=================== Constants ===================
+-----------------------------------------------*/
 
-/*------Variables (state)------*/
+const darkModeColor = {
+  null: "#3e3e3e",
+  "-1": "#468F9E",
+  "1": "#D15F47",
+}
 
-// Variables might include (board/turn/winner)
+/*-----------------------------------------------
+=================== Variables ===================
+-----------------------------------------------*/
 
-/*------Cached Element References------*/
+let turn, board
+
+/*-----------------------------------------------
+=========== Cached Element References ===========
+-----------------------------------------------*/
 
 // You might choose to put your game status here
 
-/*------Event Listeners------*/
+/*-----------------------------------------------
+================ Event Listeners ================
+-----------------------------------------------*/
 
 // This is where you should put the event listener
 // for a mouse-click
 
-/*------Functions------*/
+/*-----------------------------------------------
+=================== Functions ===================
+-----------------------------------------------*/
 
-// Some functions you might choose to use:
+function init() {
+  turn = 1
+  board = [null, null, null, null, null, null, null, null, null]
+}
 
-// Initialization function:
-// Where you set your initial state, setting up
-// what the board will look like upon loading
+function checkForWin() {
+  if (
+    board[0] + board[1] + board[2] === 3 ||
+    board[3] + board[4] + board[5] === 3 ||
+    board[6] + board[7] + board[8] === 3 ||
+    board[0] + board[3] + board[6] === 3 ||
+    board[1] + board[4] + board[7] === 3 ||
+    board[2] + board[5] + board[8] === 3 ||
+    board[0] + board[4] + board[8] === 3 ||
+    board[6] + board[4] + board[2] === 3
+  ) {
+    return 1
+  }
+  if (
+    board[0] + board[1] + board[2] === -3 ||
+    board[3] + board[4] + board[5] === -3 ||
+    board[6] + board[7] + board[8] === -3 ||
+    board[0] + board[3] + board[6] === -3 ||
+    board[1] + board[4] + board[7] === -3 ||
+    board[2] + board[5] + board[8] === -3 ||
+    board[0] + board[4] + board[8] === -3 ||
+    board[6] + board[4] + board[2] === -3
+  ) {
+    return -1
+  }
+  return 0
+}
 
 // On-Click function:
 // Set up what happens when one of the elements
