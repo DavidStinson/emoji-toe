@@ -22,34 +22,8 @@ let colorMode = {
     preRender()
   },
 }
-var handConfettiSettings = {
-  target: "my-canvas",
-  colors: [
-    [70, 143, 158],
-    [20, 43, 61],
-  ],
-  size: 2,
-  props: ["circle", "square", "triangle", "line"],
-  rotate: true,
-  clock: 50,
-  animate: true,
-}
-var footConfettiSettings = {
-  target: "my-canvas",
-  start_from_edge: true,
-  colors: [
-    [138, 62, 59],
-    [209, 95, 71],
-  ],
-}
-var tieConfettiSettings = {
-  target: "my-canvas",
-  start_from_edge: true,
-}
-
-var handConfetti = new ConfettiGenerator(handConfettiSettings)
-var footConfetti = new ConfettiGenerator(footConfettiSettings)
-var tieConfetti = new ConfettiGenerator(tieConfettiSettings)
+var confettiSettings = {target: "my-canvas"}
+var confetti = new ConfettiGenerator(confettiSettings)
 
 /*-----------------------------------------------
 =========== Cached Element References ===========
@@ -102,9 +76,6 @@ function init() {
   playerName = "Toes"
   board = [null, null, null, null, null, null, null, null, null]
   winner = null
-  handConfetti.clear()
-  footConfetti.clear()
-  tieConfetti.clear()
   preRender()
 }
 
@@ -135,6 +106,7 @@ function checkForWin() {
     board[0] + board[4] + board[8] === 3 ||
     board[6] + board[4] + board[2] === 3
   ) {
+    confetti.render()
     return 1
   }
 
@@ -148,6 +120,7 @@ function checkForWin() {
     board[0] + board[4] + board[8] === -3 ||
     board[6] + board[4] + board[2] === -3
   ) {
+    confetti.render()
     return -1
   }
   if (turn === board.length) {
@@ -191,10 +164,10 @@ function render(color) {
 function msgRender() {
   if (winner) {
     winner === -1
-      ? ((message.textContent = "Toes win!"), footConfetti.render())
+      ? (message.textContent = "Toes win!")
       : winner === 1
-      ? ((message.textContent = "Fingers win!"), handConfetti.render())
-      : ((message.textContent = "Oh no, it's a tie!"), tieConfetti.render())
+      ? (message.textContent = "Fingers win!")
+      : (message.textContent = "Oh no, it's a tie!")
   } else {
     message.textContent = `${playerName}, it's your turn!`
   }
