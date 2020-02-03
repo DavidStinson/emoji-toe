@@ -22,8 +22,60 @@ let colorMode = {
     preRender()
   },
 }
-var confettiSettings = {target: "my-canvas"}
-var confetti = new ConfettiGenerator(confettiSettings)
+var handConfettiSettings = {
+  target: "my-canvas",
+  size: 2,
+  start_from_edge: true,
+  props: [
+    "square",
+    "circle",
+    "triangle",
+    "line",
+    {type: "svg", src: "..\\images\\waving-hand.svg", weight: 0.25},
+  ],
+  rotate: true,
+  colors: [
+    [70, 143, 158],
+    [20, 43, 61],
+  ],
+}
+var footConfettiSettings = {
+  target: "my-canvas",
+  size: 2,
+  start_from_edge: true,
+  props: [
+    "square",
+    "circle",
+    "triangle",
+    "line",
+    {type: "svg", src: "..\\images\\foot.svg", weight: 0.25},
+  ],
+  rotate: true,
+  colors: [
+    [138, 62, 59],
+    [209, 95, 71],
+  ],
+}
+var tieConfettiSettings = {
+  target: "my-canvas",
+  size: 2,
+  start_from_edge: true,
+  props: [
+    "square",
+    "circle",
+    "triangle",
+    "line",
+    {type: "svg", src: "..\\images\\demon.svg", weight: 0.25},
+  ],
+  rotate: true,
+  colors: [
+    [62, 62, 62],
+    [245, 245, 245],
+  ],
+}
+var handConfetti = new ConfettiGenerator(handConfettiSettings)
+var footConfetti = new ConfettiGenerator(footConfettiSettings)
+var tieConfetti = new ConfettiGenerator(tieConfettiSettings)
 
 /*-----------------------------------------------
 =========== Cached Element References ===========
@@ -106,7 +158,6 @@ function checkForWin() {
     board[0] + board[4] + board[8] === 3 ||
     board[6] + board[4] + board[2] === 3
   ) {
-    confetti.render()
     return 1
   }
 
@@ -120,7 +171,6 @@ function checkForWin() {
     board[0] + board[4] + board[8] === -3 ||
     board[6] + board[4] + board[2] === -3
   ) {
-    confetti.render()
     return -1
   }
   if (turn === board.length) {
@@ -164,10 +214,10 @@ function render(color) {
 function msgRender() {
   if (winner) {
     winner === -1
-      ? (message.textContent = "Toes win!")
+      ? ((message.textContent = "Toes win!"), footConfetti.render())
       : winner === 1
-      ? (message.textContent = "Fingers win!")
-      : (message.textContent = "Oh no, it's a tie!")
+      ? ((message.textContent = "Fingers win!"), handConfetti.render())
+      : ((message.textContent = "Oh no, it's a tie!"), tieConfetti.render())
   } else {
     message.textContent = `${playerName}, it's your turn!`
   }
