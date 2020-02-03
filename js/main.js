@@ -9,8 +9,8 @@ let turn, board, player, winner, playerName
 -----------------------------------------------*/
 
 let colorMode = {
-  dark: 1,
-  light: 0,
+  dark: 0,
+  light: 1,
   changeColorMode: function() {
     if (colorMode.dark) {
       colorMode.light = 1
@@ -52,12 +52,21 @@ reset.addEventListener("keydown", function(evnt) {
   if (evnt.key === "Enter") init()
 })
 lmdmBtn.addEventListener("keydown", function(evnt) {
-  if (evnt.key === "Enter") colorMode.changeColorMode
+  if (evnt.key === "Enter") colorMode.changeColorMode(evnt)
 })
 
 /*-----------------------------------------------
 =================== Functions ===================
 -----------------------------------------------*/
+
+function checkUserLmdm() {
+  if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    if (colorMode.light) {
+      colorMode.light = 0
+      colorMode.dark = 1
+    }
+  }
+}
 
 function init() {
   turn = 1
@@ -160,4 +169,5 @@ function msgRender() {
   }
 }
 
+checkUserLmdm()
 init()
