@@ -3,8 +3,6 @@
 -----------------------------------------------*/
 
 let turn, board, player, winner, playerName
-var confettiSettings = { target: 'my-canvas' };
-var confetti = new ConfettiGenerator(confettiSettings);
 
 /*-----------------------------------------------
 ==================== Objects ====================
