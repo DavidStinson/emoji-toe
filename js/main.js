@@ -3,6 +3,8 @@
 -----------------------------------------------*/
 
 let turn, board, player, winner, playerName
+var confettiSettings = { target: 'my-canvas' };
+var confetti = new ConfettiGenerator(confettiSettings);
 
 /*-----------------------------------------------
 ==================== Objects ====================
@@ -22,6 +24,8 @@ let colorMode = {
     preRender()
   },
 }
+var confettiSettings = { target: 'my-canvas' };
+var confetti = new ConfettiGenerator(confettiSettings);
 
 /*-----------------------------------------------
 =========== Cached Element References ===========
@@ -104,6 +108,7 @@ function checkForWin() {
     board[0] + board[4] + board[8] === 3 ||
     board[6] + board[4] + board[2] === 3
   ) {
+    confetti.render();
     return 1
   }
 
@@ -117,6 +122,7 @@ function checkForWin() {
     board[0] + board[4] + board[8] === -3 ||
     board[6] + board[4] + board[2] === -3
   ) {
+    confetti.render();
     return -1
   }
   if (turn === board.length) {
