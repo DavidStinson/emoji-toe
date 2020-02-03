@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="images/waving-hand.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
       rel="stylesheet"
@@ -13,18 +14,20 @@
     <title>emoji-toe</title>
   </head>
   <body>
-    <h1>emoji-toe</h1>
+    <h1>
+      emoji-toe<span><button id="lmdm">light/dark</button></span>
+    </h1>
     <h3>tic-tac-toe with emoji fingers and toes</h3>
-    <section id="board">
-      <button id="cell0" class="cell"></button>
-      <button id="cell1" class="cell"></button>
-      <button id="cell2" class="cell"></button>
-      <button id="cell3" class="cell"></button>
-      <button id="cell4" class="cell"></button>
-      <button id="cell5" class="cell"></button>
-      <button id="cell6" class="cell"></button>
-      <button id="cell7" class="cell"></button>
-      <button id="cell8" class="cell"></button>
+    <section id="board" aria-label="game board">
+      <button id="cell0" class="cell" aria-label="top left cell"></button>
+      <button id="cell1" class="cell" aria-label="top middle cell"></button>
+      <button id="cell2" class="cell" aria-label="top right cell"></button>
+      <button id="cell3" class="cell" aria-label="middle left cell"></button>
+      <button id="cell4" class="cell" aria-label="center cell"></button>
+      <button id="cell5" class="cell" aria-label="middle right cell"></button>
+      <button id="cell6" class="cell" aria-label="bottom left cell"></button>
+      <button id="cell7" class="cell" aria-label="bottom middle cell"></button>
+      <button id="cell8" class="cell" aria-label="bottom right cell"></button>
     </section>
     <h2 id="message">&nbsp;</h2>
     <button id="reset">RESET</button>

@@ -12,13 +12,14 @@ let colorMode = {
   dark: 1,
   light: 0,
   changeColorMode: function() {
-    if (dark) {
-      this.light = 1
-      this.dark = 0
+    if (colorMode.dark) {
+      colorMode.light = 1
+      colorMode.dark = 0
     } else {
-      this.light = 0
-      this.dark = 1
+      colorMode.light = 0
+      colorMode.dark = 1
     }
+    preRender()
   },
 }
 
@@ -30,6 +31,7 @@ let cells = document.querySelectorAll(".cell")
 let message = document.querySelector("#message")
 let gameBoard = document.querySelector("#board")
 let reset = document.querySelector("#reset")
+let lmdmBtn = document.querySelector("#lmdm")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
 let body = document.querySelector("body")
@@ -41,12 +43,16 @@ let header = document.querySelector("h1")
 
 gameBoard.addEventListener("click", handleGameBoardSelect)
 reset.addEventListener("click", init)
+lmdmBtn.addEventListener("click", colorMode.changeColorMode)
 // handle keyboard Enter/Return keypress for keyboard users
 gameBoard.addEventListener("keydown", function(evnt) {
   if (evnt.key === "Enter") handleGameBoardSelect(evnt)
 })
 reset.addEventListener("keydown", function(evnt) {
   if (evnt.key === "Enter") init()
+})
+lmdmBtn.addEventListener("keydown", function(evnt) {
+  if (evnt.key === "Enter") colorMode.changeColorMode
 })
 
 /*-----------------------------------------------
@@ -128,6 +134,7 @@ function render(color) {
   body.setAttribute("class", color)
   header.setAttribute("class", color)
   reset.setAttribute("class", color)
+  lmdmBtn.setAttribute("class", color)
   msgRender()
   cells.forEach(function(cell, idx) {
     board[idx] === -1
