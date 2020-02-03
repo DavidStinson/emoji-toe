@@ -32,17 +32,27 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 - [ ] Animations!
 - [x] Automatic light and dark mode based on user OS preferences
 - [x] Favicon
+- [ ] Improve mobile experience
 
 ---
 
 ## WAY Above and Beyond 🚀
 
 - [ ] Play against CPU
+- [x] Get game working on GitHub Webpage
+
+---
+
+## Misc To-Dos
+
+- [ ]  Clean-up Confetti Object settings
+- [ ]  Investigate options for cleaning up CSS
 
 ---
 
 ## Known Issues 💣
 
+- Looks very broken on mobile devices
 - The foot emoji 🦶 (U+1F9B6) requires Unicode/Emoji 11.0, released in 2018. Browsers/OSs that lack support will instead display a missing emoji symbol such as � (U+FFFD) in its place. Technically the game would still be playable under this condition, as long as user is on a device that supports any emoji display, as 👋 (U+1F44B) is part of Unicode 6.0 released in 2010
 - The prefers-color-scheme media query is a relatively new and may not be widely supported, this does not break any functionality of the page.
 
