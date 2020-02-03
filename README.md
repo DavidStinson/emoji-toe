@@ -52,4 +52,4 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 
 - emoji-toe uses Roboto Slab by Google. Found at: [Google Fonts](https://fonts.google.com/specimen/Roboto+Slab) and [GitHub](https://github.com/googlefonts/robotoslab).
 - emoji-toe uses JoyPixels 5.5 waving hand emoji as favicon. Additionally uses waving hand, foot, and angry face with horns emoji as in confetti. Found at: [Joypixels](https://www.joypixels.com/).
-- emoji-toe uses confetti-js by Agezao to generate celebratory confetti. Found at: [GitHub](https://github.com/Agezao/confetti-js).
+- emoji-toe uses confetti-js by Gabriel Age to generate celebratory confetti. Found at: [GitHub](https://github.com/Agezao/confetti-js).
