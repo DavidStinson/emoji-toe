@@ -40,15 +40,15 @@ h3 {
 
 section {
   display: grid;
-  grid-template-rows: repeat(3, 20vmin);
-  grid-template-columns: repeat(3, 20vmin);
+  grid-template-rows: repeat(3, 17vmin);
+  grid-template-columns: repeat(3, 17vmin);
   grid-gap: 0vmin;
   margin: 2vmin auto;
   z-index: 10;
 }
 
 button {
-  font-size: 13vmin;
+  font-size: 10vmin;
   vertical-align: middle;
   border: 0.5vmin solid;
   font-family: "Roboto Slab", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
@@ -56,7 +56,7 @@ button {
 }
 
 button#reset {
-  margin: 1vmin auto;
+  margin: 1vmin auto 2vmin;
   padding: 0.5vmin 5vmin;
   font-size: 2.5em;
   border-radius: 25px;
