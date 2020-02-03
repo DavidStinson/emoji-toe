@@ -29,7 +29,7 @@ let colorMode = {
 let cells = document.querySelectorAll(".cell")
 let message = document.querySelector("#message")
 let gameBoard = document.querySelector("#board")
-let reset = document.querySelector("button")
+let reset = document.querySelector("#reset")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
 let body = document.querySelector("body")
@@ -39,8 +39,15 @@ let header = document.querySelector("h1")
 ================ Event Listeners ================
 -----------------------------------------------*/
 
-gameBoard.addEventListener("click", handleGameBoardClick)
+gameBoard.addEventListener("click", handleGameBoardSelect)
 reset.addEventListener("click", init)
+// handle keyboard Enter/Return keypress for keyboard users
+gameBoard.addEventListener("keydown", function(evnt) {
+  if (evnt.key === "Enter") handleGameBoardSelect(evnt)
+})
+reset.addEventListener("keydown", function(evnt) {
+  if (evnt.key === "Enter") init()
+})
 
 /*-----------------------------------------------
 =================== Functions ===================
@@ -55,10 +62,11 @@ function init() {
   preRender()
 }
 
-function handleGameBoardClick(evnt) {
+function handleGameBoardSelect(evnt) {
   // Gets the cell number from the target cell,
   // by removing "cell" from the id
   let idx = evnt.target.id.replace("cell", "")
+  evnt.target.tabIndex
   if (board[idx] === null) {
     board[idx] = player
     player *= -1
@@ -119,6 +127,7 @@ function preRender() {
 function render(color) {
   body.setAttribute("class", color)
   header.setAttribute("class", color)
+  reset.setAttribute("class", color)
   msgRender()
   cells.forEach(function(cell, idx) {
     board[idx] === -1
@@ -145,17 +154,3 @@ function msgRender() {
 }
 
 init()
-
-// On-Click function:
-// Set up what happens when one of the elements
-// is clicked
-
-// Check winner function:
-// Checks the current state of the board for
-// a winner and changes the state of the winner
-// variable if so
-
-// Render function:
-// Displays the current state of the board
-// on the page, updating the elements to reflect
-// either X or O depending on whose turn it is
