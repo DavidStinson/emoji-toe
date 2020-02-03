@@ -22,6 +22,9 @@ let colorMode = {
     preRender()
   },
 }
+
+// ============== Confetti Objects ==============
+
 var handConfettiSettings = {
   target: "my-canvas",
   size: 2,
