@@ -207,7 +207,8 @@ function render(color) {
       : board[idx] === 1
       ? (cell.classList.add("fingers"),
         (cell.textContent = "👋"),
-        cell.classList.remove("null"))
+        cell.classList.remove("null"),
+        cell.classList.remove("toes"))
       : board[idx] === 2
       ? (cell.classList.add("tie"),
         (cell.textContent = "👿"),
