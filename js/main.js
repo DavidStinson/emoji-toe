@@ -11,7 +11,7 @@ let turn, board, player, winner, playerName
 let colorMode = {
   dark: 0,
   light: 1,
-  changeColorMode: function() {
+  changeColorMode: function () {
     if (colorMode.dark) {
       colorMode.light = 1
       colorMode.dark = 0
@@ -34,7 +34,7 @@ var handConfettiSettings = {
     "circle",
     "triangle",
     "line",
-    {type: "svg", src: "..\\images\\waving-hand.svg", weight: 0.25},
+    {type: "svg", src: "../assets/images/waving-hand.svg", weight: 0.25},
   ],
   rotate: true,
   colors: [
@@ -51,7 +51,7 @@ var footConfettiSettings = {
     "circle",
     "triangle",
     "line",
-    {type: "svg", src: "..\\images\\foot.svg", weight: 0.25},
+    {type: "svg", src: "../assets/images/foot.svg", weight: 0.25},
   ],
   rotate: true,
   colors: [
@@ -68,7 +68,7 @@ var tieConfettiSettings = {
     "circle",
     "triangle",
     "line",
-    {type: "svg", src: "..\\images\\demon.svg", weight: 0.25},
+    {type: "svg", src: "../assets/images/demon.svg", weight: 0.25},
   ],
   rotate: true,
   colors: [
@@ -92,7 +92,6 @@ let lmdmBtn = document.querySelector("#lmdm")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
 let body = document.querySelector("body")
-let header = document.querySelector("h1")
 
 /*-----------------------------------------------
 ================ Event Listeners ================
@@ -102,13 +101,13 @@ gameBoard.addEventListener("click", handleGameBoardSelect)
 reset.addEventListener("click", init)
 lmdmBtn.addEventListener("click", colorMode.changeColorMode)
 // handle keyboard Enter/Return keypress for keyboard users
-gameBoard.addEventListener("keydown", function(evnt) {
+gameBoard.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") handleGameBoardSelect(evnt)
 })
-reset.addEventListener("keydown", function(evnt) {
+reset.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") init()
 })
-lmdmBtn.addEventListener("keydown", function(evnt) {
+lmdmBtn.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") colorMode.changeColorMode(evnt)
 })
 
@@ -198,18 +197,17 @@ function preRender() {
 
 function render(color) {
   body.setAttribute("class", color)
-  header.setAttribute("class", color)
   reset.setAttribute("class", color)
   lmdmBtn.setAttribute("class", color)
   msgRender()
-  cells.forEach(function(cell, idx) {
+  cells.forEach(function (cell, idx) {
     board[idx] === -1
-      ? (cell.setAttribute("class", `${color}-foot`), (cell.textContent = "🦶"))
+      ? (cell.setAttribute("class", "toes"), (cell.textContent = "🦶"))
       : board[idx] === 1
-      ? (cell.setAttribute("class", `${color}-hand`), (cell.textContent = "👋"))
+      ? (cell.setAttribute("class", "fingers"), (cell.textContent = "👋"))
       : board[idx] === 2
-      ? (cell.setAttribute("class", `${color}-tie`), (cell.textContent = "👿"))
-      : (cell.setAttribute("class", `${color}-null`), (cell.textContent = ""))
+      ? (cell.setAttribute("class", "tie"), (cell.textContent = "👿"))
+      : (cell.setAttribute("class", "null"), (cell.textContent = ""))
   })
 }
 
