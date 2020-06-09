@@ -14,7 +14,7 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 
 ---
 
-## Bonuses 🚄
+## Bonuses 🚀
 
 - [x] Display whose turn it is `X` or `O`.
 - [x] Provide win logic and display a winning message.
@@ -23,21 +23,11 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 - [x] Basic accessibility features
 - [x] Add light/dark mode
 - [x] Confetti!
-
----
-
-## Above and Beyond ✈
-
 - [x] Investigate CSS Grid? (Not needed)
 - [ ] Animations!
 - [x] Automatic light and dark mode based on user OS preferences
 - [x] Favicon
 - [x] Improve mobile experience
-
----
-
-## WAY Above and Beyond 🚀
-
 - [ ] Play against CPU
 - [x] Get game working on GitHub Webpage
 
