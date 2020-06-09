@@ -18,25 +18,21 @@
     <main class="container">
       <canvas id="my-canvas"></canvas>
       <h1 class="title">
-        emoji-toe<span><button id="lmdm">light/dark</button></span>
+        emoji-toe<span><button id="lmdm"></button></span>
       </h1>
-      <h3>tic-tac-toe with emoji fingers and toes</h3>
+      <h3 class="subhead">tic-tac-toe with emoji fingers and toes</h3>
       <section id="board" aria-label="game board">
-        <button id="cell0" class="cell" aria-label="top left cell"></button>
-        <button id="cell1" class="cell" aria-label="top middle cell"></button>
-        <button id="cell2" class="cell" aria-label="top right cell"></button>
-        <button id="cell3" class="cell" aria-label="middle left cell"></button>
-        <button id="cell4" class="cell" aria-label="center cell"></button>
-        <button id="cell5" class="cell" aria-label="middle right cell"></button>
-        <button id="cell6" class="cell" aria-label="bottom left cell"></button>
-        <button
-          id="cell7"
-          class="cell"
-          aria-label="bottom middle cell"
-        ></button>
-        <button id="cell8" class="cell" aria-label="bottom right cell"></button>
+        <button id="0" class="cell tc lc" aria-label="top left"></button>
+        <button id="1" class="cell tc" aria-label="top middle"></button>
+        <button id="2" class="cell tc rc" aria-label="top right"></button>
+        <button id="3" class="cell lc" aria-label="middle left"></button>
+        <button id="4" class="cell" aria-label="center"></button>
+        <button id="5" class="cell rc" aria-label="middle right"></button>
+        <button id="6" class="cell bc lc" aria-label="bottom left"></button>
+        <button id="7" class="cell bc" aria-label="bottom middle"></button>
+        <button id="8" class="cell bc rc" aria-label="bottom right"></button>
       </section>
-      <h2 id="message">&nbsp;</h2>
+      <h2 class="subhead" id="message"></h2>
       <button id="reset">RESET</button>
     </main>
   </body>

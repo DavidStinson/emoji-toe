@@ -23,8 +23,10 @@ body {
   --fingers-bg: #142b3d;
   --toes-bg: #8a3e3b;
   --tie-bg: #9e7e5b;
-  --button-bg: var(--banner-bg);
+  --button-bg: var(--title-bg);
   --buton-hover: #142b3d;
+  --button-hover-font: #f5f5f5;
+  --lmdm-image: url(../assets/images/moon-solid.svg);
 }
 
 body.dm {
@@ -37,8 +39,10 @@ body.dm {
   --fingers-bg: #468f9e;
   --toes-bg: #d15f47;
   --tie-bg: #9e7e5b;
-  --button-bg: var(--banner-bg);
-  --button-hover: #3e3e3e;
+  --button-bg: var(--title-bg);
+  --button-hover: #468f9e;
+  --button-hover-font: #3e3e3e;
+  --lmdm-image: url(../assets/images/sun-solid.svg);
 }
 
 .container {
@@ -46,6 +50,7 @@ body.dm {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
   width: 100vw;
+  min-height: 75rem;
   min-width: 35rem;
   margin: 0;
   display: flex;
@@ -58,60 +63,62 @@ body.dm {
 /*================================== Content =================================*/
 
 .title {
-  font-size: clamp(4.6rem, calc(3rem + 6vw), 12.4rem);
+  font-size: clamp(4.6rem, calc(2rem + 5vw), 10.4rem);
   margin: 2.5vh 0;
   background-color: var(--title-bg);
 }
 
-h1 > span {
+#lmdm {
   position: absolute;
   right: 20px;
   top: 20px;
+  background: var(--lmdm-image);
+  border: 0;
+  height: 4rem;
+  width: 4rem;
 }
 
-button#lmdm {
-  font-size: 0.25em;
-  border-radius: 15px;
+.subhead {
+  font-size: clamp(1.9rem, calc(1rem + 2vw), 3.2rem);
+  margin: 0 auto 2.5vh;
 }
 
-h2 {
-  font-size: 2.5em;
-  margin: 1vmin auto;
-}
-
-h3 {
-  font-size: 2em;
-  margin: 1vmin auto;
-}
-
-section {
+#board {
   display: grid;
-  grid-template-rows: repeat(3, 17vmin);
-  grid-template-columns: repeat(3, 17vmin);
-  grid-gap: 0vmin;
-  margin: 2vmin auto;
+  grid-template-rows: repeat(3, clamp(11rem, 16vmin, 16.5rem));
+  grid-template-columns: repeat(3, clamp(11rem, 16vmin, 16rem));
+  margin: 2vw auto;
   z-index: 10;
 }
 
-button {
-  font-size: 10vmin;
-  vertical-align: middle;
-  border: 0.5vmin solid;
+#reset {
   font-family: "Roboto Slab", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0.4vh auto 0;
+  padding: 0.5vmin 5vmin;
+  font-size: clamp(1.6rem, calc(0.6rem + 2vw), 2.8rem);
+  border-radius: 15px;
+  z-index: 10;
+  border: 0.4rem solid var(--cell-border);
+  background-color: var(--button-bg);
+  color: var(--font-color);
 }
 
-button#reset {
-  margin: 1vmin auto 2vmin;
-  padding: 0.5vmin 5vmin;
-  font-size: 2.5em;
-  border-radius: 25px;
-  z-index: 10;
+#reset:hover,
+#reset:focus {
+  background-color: var(--button-hover);
+  color: var(--button-hover-font);
 }
+
+/*-----------------------------------------------
+=================== Confetti ==================
+-----------------------------------------------*/
 
 #my-canvas {
   float: left;
   position: fixed;
+  cursor: pointer;
+  color: 
 }
 
 /*-----------------------------------------------
@@ -119,7 +126,8 @@ button#reset {
 -----------------------------------------------*/
 
 .cell {
-  border-color: var(--cell-border);
+  border: clamp(0.4rem, 0.4vw, 0.6rem) solid var(--cell-border);
+  font-size: clamp(6rem, calc(5rem + 5vw), 11rem);
 }
 
 .fingers {
@@ -148,88 +156,21 @@ button#reset {
 }
 
 /*-----------------------------------------------
-================ Dark mode rules ================
+======= Normalize width of cell outside edges ========
 -----------------------------------------------*/
 
-button#lmdm.dm {
-  color: #3e3e3e;
-  background-color: #f5f5f5;
+.rc {
+  border-right-width: clamp(0.8rem, 0.8vw, 1.2rem);
 }
 
-button.dm {
-  background-color: #142b3d;
-  color: #f5f5f5;
+.tc {
+  border-top-width: clamp(0.8rem, 0.8vw, 1.2rem);
 }
 
-button.dm:hover,
-button.dm:focus,
-button#lmdm.dm:hover,
-button#lmdm.dm:focus {
-  border-color: #f5f5f5;
-  background-color: #468f9e;
-  color: #3e3e3e;
-  cursor: pointer;
+.bc {
+  border-bottom-width: clamp(0.8rem, 0.8vw, 1.2rem);
 }
 
-/*-----------------------------------------------
-=============== Light mode rules ================
------------------------------------------------*/
-
-button#lmdm.lm {
-  color: #3e3e3e;
-  background-color: #f5f5f5;
-}
-
-button.lm {
-  background-color: #468f9e;
-  color: #3e3e3e;
-}
-
-button.lm:hover,
-button.lm:focus,
-button#lmdm.lm:hover,
-button#lmdm.lm:focus {
-  border-color: #3e3e3e;
-  background-color: #142b3d;
-  color: #f5f5f5;
-  cursor: pointer;
-}
-
-/*-----------------------------------------------
-======= Normalize width of outside edges ========
------------------------------------------------*/
-#cell0 {
-  border-top-width: 1vmin;
-  border-left-width: 1vmin;
-}
-
-#cell1 {
-  border-top-width: 1vmin;
-}
-
-#cell2 {
-  border-top-width: 1vmin;
-  border-right-width: 1vmin;
-}
-
-#cell3 {
-  border-left-width: 1vmin;
-}
-
-#cell5 {
-  border-right-width: 1vmin;
-}
-
-#cell6 {
-  border-left-width: 1vmin;
-  border-bottom-width: 1vmin;
-}
-
-#cell7 {
-  border-bottom-width: 1vmin;
-}
-
-#cell8 {
-  border-bottom-width: 1vmin;
-  border-right-width: 1vmin;
+.lc {
+  border-left-width: clamp(0.8rem, 0.8vw, 1.2rem);
 }

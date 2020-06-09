@@ -136,7 +136,8 @@ function init() {
 function handleGameBoardSelect(evnt) {
   // Gets the cell number from the target cell,
   // by removing "cell" from the id
-  let idx = evnt.target.id.replace("cell", "")
+  let idx = evnt.target.id
+  console.log(evnt.target)
   evnt.target.tabIndex
   if (board[idx] === null) {
     board[idx] = player
@@ -198,16 +199,25 @@ function preRender() {
 function render(color) {
   body.setAttribute("class", color)
   reset.setAttribute("class", color)
-  lmdmBtn.setAttribute("class", color)
   msgRender()
   cells.forEach(function (cell, idx) {
     board[idx] === -1
-      ? (cell.setAttribute("class", "toes"), (cell.textContent = "🦶"))
+      ? (cell.classList.add("toes"),
+        (cell.textContent = "🦶"),
+        cell.classList.remove("null"))
       : board[idx] === 1
-      ? (cell.setAttribute("class", "fingers"), (cell.textContent = "👋"))
+      ? (cell.classList.add("fingers"),
+        (cell.textContent = "👋"),
+        cell.classList.remove("null"))
       : board[idx] === 2
-      ? (cell.setAttribute("class", "tie"), (cell.textContent = "👿"))
-      : (cell.setAttribute("class", "null"), (cell.textContent = ""))
+      ? (cell.classList.add("tie"),
+        (cell.textContent = "👿"),
+        cell.classList.remove("null"))
+      : (cell.classList.add("null"),
+        (cell.textContent = ""),
+        cell.classList.remove("tie"),
+        cell.classList.remove("fingers"),
+        cell.classList.remove("toes"))
   })
 }
 
