@@ -193,12 +193,11 @@ function fillBoardWithWinner(winner) {
 // Added a preRender function to greatly simplify the render function
 // ALL functions requiring rendering call this funciton
 function preRender() {
-  colorMode.dark ? render("dm") : render("lm")
+  colorMode.dark ? render("dm") : render("")
 }
 
 function render(color) {
   body.setAttribute("class", color)
-  reset.setAttribute("class", color)
   msgRender()
   cells.forEach(function (cell, idx) {
     board[idx] === -1
