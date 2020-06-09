@@ -7,13 +7,13 @@
   font-display: swap;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   #lmdm {
     margin-left: max(16rem, calc(50% - 4rem));
   }
 }
 
-@-moz-document url-prefix(){
+@-moz-document url-prefix() {
   #lmdm {
     margin-left: max(32rem, calc(100% - 8rem));
   }
@@ -61,7 +61,7 @@ body.dm {
 .container {
   font-family: "Roboto Slab", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  height: calc(100vh - 7rem) ;
+  height: calc(100vh - 7rem);
   width: 100vw;
   min-height: 85rem;
   min-width: 35rem;
@@ -89,18 +89,21 @@ body.dm {
   flex-direction: column;
   justify-self: center;
   align-items: center;
+  z-index: 10;
 }
 
 .footer p {
   margin: auto;
-  font-size: clamp(1rem, calc(.4rem + 2vw), 1.4rem);
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: var(--font-color)
+  font-size: clamp(1rem, calc(0.4rem + 2vw), 1.4rem);
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--font-color);
+  z-index: 10;
 }
 
 .footer a {
-  color: var(--font-color)
+  color: var(--font-color);
+  z-index: 10;
 }
 
 /*================================= Content =================================*/
@@ -155,6 +158,8 @@ body.dm {
 .cell {
   border: clamp(0.4rem, 0.4vw, 0.6rem) solid var(--cell-border);
   font-size: clamp(6rem, calc(5rem + 5vw), 10vh);
+  margin: 0;
+  padding: 0;
 }
 
 .fingers {
