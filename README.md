@@ -28,11 +28,11 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 
 ## Above and Beyond ✈
 
-- [ ] Investigate CSS Grid?
+- [x] Investigate CSS Grid? (Not needed)
 - [ ] Animations!
 - [x] Automatic light and dark mode based on user OS preferences
 - [x] Favicon
-- [ ] Improve mobile experience
+- [x] Improve mobile experience
 
 ---
 
@@ -46,20 +46,17 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 ## Misc To-Dos
 
 - [ ]  Clean-up Confetti Object settings
-- [ ]  Investigate options for cleaning up CSS
+- [x]  Investigate options for cleaning up CSS
 
 ---
 
 ## Known Issues 💣
 
-- Looks very broken on mobile devices
 - The foot emoji 🦶 (U+1F9B6) requires Unicode/Emoji 11.0, released in 2018. Browsers/OSs that lack support will instead display a missing emoji symbol such as � (U+FFFD) in its place. Technically the game would still be playable under this condition, as long as user is on a device that supports any emoji display, as 👋 (U+1F44B) is part of Unicode 6.0 released in 2010
-- The prefers-color-scheme media query is a relatively new and may not be widely supported, this does not break any functionality of the page.
+- The prefers-color-scheme media query is a relatively new and may not be widely supported, however if used on an unsupported browser none of the functionality of the page will be impacted.
 
 ---
 
 ## Credits 🙌
 
-- emoji-toe uses Roboto Slab by Google. Found at: [Google Fonts](https://fonts.google.com/specimen/Roboto+Slab) and [GitHub](https://github.com/googlefonts/robotoslab).
-- emoji-toe uses JoyPixels 5.5 waving hand emoji as favicon. Additionally uses waving hand, foot, and angry face with horns emoji as in confetti. Found at: [Joypixels](https://www.joypixels.com/).
-- emoji-toe uses confetti-js by Gabriel Age to generate celebratory confetti. Found at: [GitHub](https://github.com/Agezao/confetti-js).
+- Check out the [Attributions](https://github.com/DavidStinson/emoji-toe/blob/master/Attributations.md).
