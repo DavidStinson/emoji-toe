@@ -11,15 +11,11 @@ var winCombos = [
   [2, 4, 6],
 ]
 
-/*-----------------------------------------------
-=================== Variables ===================
------------------------------------------------*/
+/*================================ Variables ================================*/
 
 let turn, board, player, winner, playerName
 
-/*-----------------------------------------------
-==================== Objects ====================
------------------------------------------------*/
+/*================================= Objects =================================*/
 
 let colorMode = {
   dark: 0,
@@ -36,7 +32,7 @@ let colorMode = {
   },
 }
 
-// ============== Confetti Objects ==============
+/*============================= Confetti Objects =============================*/
 
 var handConfettiSettings = {
   target: "my-canvas",
@@ -93,9 +89,7 @@ var handConfetti = new ConfettiGenerator(handConfettiSettings)
 var footConfetti = new ConfettiGenerator(footConfettiSettings)
 var tieConfetti = new ConfettiGenerator(tieConfettiSettings)
 
-/*-----------------------------------------------
-=========== Cached Element References ===========
------------------------------------------------*/
+/*======================== Cached Element References ========================*/
 
 let cells = document.querySelectorAll(".cell")
 let message = document.querySelector("#message")
@@ -106,9 +100,7 @@ let lmdmBtn = document.querySelector("#lmdm")
 // They won't be used for game logic.
 let body = document.querySelector("body")
 
-/*-----------------------------------------------
-================ Event Listeners ================
------------------------------------------------*/
+/*============================= Event Listeners =============================*/
 
 gameBoard.addEventListener("click", handleGameBoardSelect)
 reset.addEventListener("click", init)
@@ -124,9 +116,7 @@ lmdmBtn.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") colorMode.changeColorMode(evnt)
 })
 
-/*-----------------------------------------------
-=================== Functions ===================
------------------------------------------------*/
+/*================================ Functions ================================*/
 
 function checkUserLmdm() {
   if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
@@ -194,7 +184,7 @@ function fillBoardWithWinner(winner) {
   }
 }
 
-//================== Renderers ==================
+/*================================ Renderers ================================*/
 
 // Added a preRender function to greatly simplify the render function
 // ALL functions requiring rendering call this funciton
@@ -209,7 +199,8 @@ function render(color) {
     board[idx] === -1
       ? (cell.classList.add("toes"),
         (cell.textContent = "🦶"),
-        cell.classList.remove("null"))
+        cell.classList.remove("null"),
+        cell.classList.remove("fingers"))
       : board[idx] === 1
       ? (cell.classList.add("fingers"),
         (cell.textContent = "👋"),
