@@ -34,57 +34,52 @@ let colorMode = {
 
 /*============================= Confetti Objects =============================*/
 
-const handConfettiSettings = {
+const baseConfetti = {
   target: "my-canvas",
   size: 2,
   start_from_edge: true,
-  props: [
-    "square",
-    "circle",
-    "triangle",
-    "line",
-    {type: "svg", src: "../assets/images/waving-hand.svg", weight: 0.25},
-  ],
   rotate: true,
-  colors: [
-    [70, 143, 158],
-    [20, 43, 61],
-  ],
 }
-const footConfettiSettings = {
-  target: "my-canvas",
-  size: 2,
-  start_from_edge: true,
-  props: [
-    "square",
-    "circle",
-    "triangle",
-    "line",
-    {type: "svg", src: "../assets/images/foot.svg", weight: 0.25},
-  ],
-  rotate: true,
-  colors: [
-    [138, 62, 59],
-    [209, 95, 71],
-  ],
-}
-const tieConfettiSettings = {
-  target: "my-canvas",
-  size: 2,
-  start_from_edge: true,
-  props: [
-    "square",
-    "circle",
-    "triangle",
-    "line",
-    {type: "svg", src: "../assets/images/demon.svg", weight: 0.25},
-  ],
-  rotate: true,
-  colors: [
-    [62, 62, 62],
-    [245, 245, 245],
-  ],
-}
+
+const handConfettiSettings = Object.create(baseConfetti)
+handConfettiSettings.props = [
+  "square",
+  "circle",
+  "triangle",
+  "line",
+  {type: "svg", src: "../assets/images/waving-hand.svg", weight: 0.25},
+]
+handConfettiSettings.colors = [
+  [70, 143, 158],
+  [20, 43, 61],
+]
+
+const footConfettiSettings = Object.create(baseConfetti)
+footConfettiSettings.props = [
+  "square",
+  "circle",
+  "triangle",
+  "line",
+  {type: "svg", src: "../assets/images/foot.svg", weight: 0.25},
+]
+footConfettiSettings.colors = [
+  [138, 62, 59],
+  [209, 95, 71],
+]
+
+const tieConfettiSettings = Object.create(baseConfetti)
+tieConfettiSettings.props = [
+  "square",
+  "circle",
+  "triangle",
+  "line",
+  {type: "svg", src: "../assets/images/demon.svg", weight: 0.25},
+]
+tieConfettiSettings.colors = [
+  [62, 62, 62],
+  [245, 245, 245],
+]
+
 const handConfetti = new ConfettiGenerator(handConfettiSettings)
 const footConfetti = new ConfettiGenerator(footConfettiSettings)
 const tieConfetti = new ConfettiGenerator(tieConfettiSettings)
@@ -154,7 +149,7 @@ function handleGameBoardSelect(evnt) {
 }
 
 function checkForWin() {
-  for (let i = 0; i < winningCombos.length; i++) {
+  for (let i = 0; i < winCombos.length; i++) {
     if (
       board[winCombos[i][0]] +
         board[winCombos[i][1]] +
@@ -167,7 +162,7 @@ function checkForWin() {
       board[winCombos[i][0]] +
         board[winCombos[i][1]] +
         board[winCombos[i][2]] ===
-      3
+      -3
     ) {
       return -1
     }
