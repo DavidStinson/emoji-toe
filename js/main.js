@@ -1,6 +1,6 @@
 /*================================ Constants ================================*/
 
-var winCombos = [
+const winCombos = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -34,7 +34,7 @@ let colorMode = {
 
 /*============================= Confetti Objects =============================*/
 
-var handConfettiSettings = {
+const handConfettiSettings = {
   target: "my-canvas",
   size: 2,
   start_from_edge: true,
@@ -51,7 +51,7 @@ var handConfettiSettings = {
     [20, 43, 61],
   ],
 }
-var footConfettiSettings = {
+const footConfettiSettings = {
   target: "my-canvas",
   size: 2,
   start_from_edge: true,
@@ -68,7 +68,7 @@ var footConfettiSettings = {
     [209, 95, 71],
   ],
 }
-var tieConfettiSettings = {
+const tieConfettiSettings = {
   target: "my-canvas",
   size: 2,
   start_from_edge: true,
@@ -85,9 +85,9 @@ var tieConfettiSettings = {
     [245, 245, 245],
   ],
 }
-var handConfetti = new ConfettiGenerator(handConfettiSettings)
-var footConfetti = new ConfettiGenerator(footConfettiSettings)
-var tieConfetti = new ConfettiGenerator(tieConfettiSettings)
+const handConfetti = new ConfettiGenerator(handConfettiSettings)
+const footConfetti = new ConfettiGenerator(footConfettiSettings)
+const tieConfetti = new ConfettiGenerator(tieConfettiSettings)
 
 /*======================== Cached Element References ========================*/
 
@@ -154,7 +154,7 @@ function handleGameBoardSelect(evnt) {
 }
 
 function checkForWin() {
-  for (var i = 0; i < winningCombos.length; i++) {
+  for (let i = 0; i < winningCombos.length; i++) {
     if (
       board[winCombos[i][0]] +
         board[winCombos[i][1]] +
