@@ -1,3 +1,16 @@
+/*================================ Constants ================================*/
+
+var winCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+]
+
 /*-----------------------------------------------
 =================== Variables ===================
 -----------------------------------------------*/
@@ -151,30 +164,23 @@ function handleGameBoardSelect(evnt) {
 }
 
 function checkForWin() {
-  if (
-    board[0] + board[1] + board[2] === 3 ||
-    board[3] + board[4] + board[5] === 3 ||
-    board[6] + board[7] + board[8] === 3 ||
-    board[0] + board[3] + board[6] === 3 ||
-    board[1] + board[4] + board[7] === 3 ||
-    board[2] + board[5] + board[8] === 3 ||
-    board[0] + board[4] + board[8] === 3 ||
-    board[6] + board[4] + board[2] === 3
-  ) {
-    return 1
-  }
-
-  if (
-    board[0] + board[1] + board[2] === -3 ||
-    board[3] + board[4] + board[5] === -3 ||
-    board[6] + board[7] + board[8] === -3 ||
-    board[0] + board[3] + board[6] === -3 ||
-    board[1] + board[4] + board[7] === -3 ||
-    board[2] + board[5] + board[8] === -3 ||
-    board[0] + board[4] + board[8] === -3 ||
-    board[6] + board[4] + board[2] === -3
-  ) {
-    return -1
+  for (var i = 0; i < winningCombos.length; i++) {
+    if (
+      board[winCombos[i][0]] +
+        board[winCombos[i][1]] +
+        board[winCombos[i][2]] ===
+      3
+    ) {
+      return 1
+    }
+    if (
+      board[winCombos[i][0]] +
+        board[winCombos[i][1]] +
+        board[winCombos[i][2]] ===
+      3
+    ) {
+      return -1
+    }
   }
   if (turn === board.length) {
     return 2
