@@ -22,11 +22,11 @@ let colorMode = {
   light: 1,
   changeColorMode: function () {
     if (colorMode.dark) {
-      colorMode.light = 1
-      colorMode.dark = 0
+      colorMode.light = true
+      colorMode.dark = false
     } else {
-      colorMode.light = 0
-      colorMode.dark = 1
+      colorMode.light = false
+      colorMode.dark = true
     }
     preRender()
   },
@@ -121,8 +121,8 @@ lmdmBtn.addEventListener("keydown", function (evnt) {
 function checkUserLmdm() {
   if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
     if (colorMode.light) {
-      colorMode.light = 0
-      colorMode.dark = 1
+      colorMode.light = false
+      colorMode.dark = true
     }
   }
 }
