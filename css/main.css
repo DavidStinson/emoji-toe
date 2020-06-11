@@ -134,21 +134,23 @@ body.dm {
   z-index: 10;
 }
 
-#reset {
+.button {
   font-family: "Roboto Slab", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  margin: 0.4vh auto 0;
-  padding: 0.5vmin 5vmin;
+  margin: 0.4vh 1rem 0;
+  padding: 0.25vh 2vw;
   font-size: clamp(1.6rem, calc(0.6rem + 2vw), 2.8rem);
   border-radius: 15px;
   z-index: 10;
   border: 0.4rem solid var(--cell-border);
   background-color: var(--accent-bg);
   color: var(--font-color);
+  display: inline;
+  position: relative;
 }
 
-#reset:hover,
-#reset:focus {
+.button:hover,
+.button:focus {
   background-color: var(--button-hover);
   color: var(--button-hover-font);
 }

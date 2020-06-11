@@ -13,7 +13,7 @@ const winCombos = [
 
 /*================================ Variables ================================*/
 
-let turn, board, player, winner, playerName
+let turn, board, player, winner, playerName, aiGameMode
 
 /*================================= Objects =================================*/
 
@@ -89,7 +89,8 @@ const tieConfetti = new ConfettiGenerator(tieConfettiSettings)
 let cells = document.querySelectorAll(".cell")
 let message = document.querySelector("#message")
 let gameBoard = document.querySelector("#board")
-let reset = document.querySelector("#reset")
+let restart = document.querySelector("#restart")
+let restartVsAi = document.querySelector("#restart-vs-cpu")
 let lmdmBtn = document.querySelector("#lmdm")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
@@ -97,15 +98,19 @@ let body = document.querySelector("body")
 
 /*============================= Event Listeners =============================*/
 
-gameBoard.addEventListener("click", handleGameBoardSelect)
-reset.addEventListener("click", init)
+gameBoard.addEventListener("click", handlePlayerTurn)
+restart.addEventListener("click", init)
 lmdmBtn.addEventListener("click", colorMode.changeColorMode)
+restartVsAi.addEventListener("click", initWithAI)
 // handle keyboard Enter/Return keypress for keyboard users
 gameBoard.addEventListener("keydown", function (evnt) {
-  if (evnt.key === "Enter") handleGameBoardSelect(evnt)
+  if (evnt.key === "Enter") handlePlayerTurn(evnt)
 })
-reset.addEventListener("keydown", function (evnt) {
+restart.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") init()
+})
+restartVsAi.addEventListener("keydown", function (evnt) {
+  if (evnt.key === "Enter") initWithAI()
 })
 lmdmBtn.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") colorMode.changeColorMode(evnt)
@@ -123,6 +128,16 @@ function checkUserLmdm() {
 }
 
 function init() {
+  aiGameMode = false
+  buildGame()
+}
+
+function initWithAI() {
+  aiGameMode = true
+  buildGame()
+}
+
+function buildGame() {
   turn = 1
   player = -1
   playerName = "Toes"
@@ -131,11 +146,31 @@ function init() {
   preRender()
 }
 
-function handleGameBoardSelect(evnt) {
+function handlePlayerTurn(evnt) {
   // Gets the cell number from the target cell,
   // by removing "cell" from the id
+  processTurn(evnt)
+  if (aiGameMode && !winner) {
+    handleAiTurn()
+  }
+}
+
+function handleAiTurn() {
+  nullCells = []
+  const evnt = {}
+  evnt.target = {}
+  board.forEach((cell, idx) => {
+    if (!cell) {
+      nullCells.push(idx)
+    }
+  })
+  const AiCellChoice = Math.floor(Math.random() * nullCells.length)
+  evnt.target.id = nullCells[AiCellChoice]
+  processTurn(evnt)
+}
+
+function processTurn(evnt) {
   let idx = evnt.target.id
-  console.log(evnt.target)
   evnt.target.tabIndex
   if (board[idx] === null) {
     board[idx] = player
