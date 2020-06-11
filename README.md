@@ -1,6 +1,6 @@
 # emoji-toe
 
-Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic-tac-toe using emoji. The Must-Have objectives below were the minimum requirements for completing the project, while other project goals were either instructor suggestions or personal goals. Checked items are fulfilled and completed in the project, while unchecked items have yet to be implemented. Thanks for taking the time to check this out 🤩!
+Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic-tac-toe using emoji. The Must-Have objectives below were the minimum requirements for completing the project, while other project goals were either instructor suggestions or personal goals. Thanks for taking the time to check this out! 🤩
 
 ---
 
@@ -30,6 +30,7 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 - [x] Improve mobile experience
 - [ ] Play against CPU
 - [x] Get game working on GitHub Webpage
+- [ ] Flesh out AI to be more than just random number generator
 
 ---
 
