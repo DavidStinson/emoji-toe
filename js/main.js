@@ -149,31 +149,26 @@ function buildGame() {
 function handlePlayerTurn(evnt) {
   // Gets the cell number from the target cell,
   // by removing "cell" from the id
-  processTurn(evnt)
-  if (aiGameMode && !winner) {
+  processTurn(evnt.target.id)
+  if (aiGameMode && !winner && player === 1) {
     handleAiTurn()
   }
 }
 
 function handleAiTurn() {
   nullCells = []
-  const evnt = {}
-  evnt.target = {}
   board.forEach((cell, idx) => {
     if (!cell) {
       nullCells.push(idx)
     }
   })
-  const AiCellChoice = Math.floor(Math.random() * nullCells.length)
-  evnt.target.id = nullCells[AiCellChoice]
-  processTurn(evnt)
+  const aiCellChoice = Math.floor(Math.random() * nullCells.length)
+  processTurn(nullCells[aiCellChoice])
 }
 
 function processTurn(evnt) {
-  let idx = evnt.target.id
-  evnt.target.tabIndex
-  if (board[idx] === null) {
-    board[idx] = player
+  if (board[evnt] === null) {
+    board[evnt] = player
     player *= -1
     player === -1 ? (playerName = "Toes") : (playerName = "Fingers")
     winner = checkForWin()
