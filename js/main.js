@@ -90,7 +90,7 @@ let cells = document.querySelectorAll(".cell")
 let message = document.querySelector("#message")
 let gameBoard = document.querySelector("#board")
 let restart = document.querySelector("#restart")
-let restartVsAi = document.querySelector("#restart-vs-cpu")
+let restartVsAi = document.querySelector("#restart-vs-ai")
 let lmdmBtn = document.querySelector("#lmdm")
 // Pull these elements solely to style them.
 // They won't be used for game logic.
