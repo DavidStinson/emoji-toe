@@ -101,7 +101,7 @@ let body = document.querySelector("body")
 gameBoard.addEventListener("click", handlePlayerTurn)
 restart.addEventListener("click", init)
 lmdmBtn.addEventListener("click", colorMode.changeColorMode)
-restartVsAi.addEventListener("click", initWithAI)
+restartVsAi.addEventListener("click", initWithAi)
 // handle keyboard Enter/Return keypress for keyboard users
 gameBoard.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") handlePlayerTurn(evnt)
@@ -110,7 +110,7 @@ restart.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") init()
 })
 restartVsAi.addEventListener("keydown", function (evnt) {
-  if (evnt.key === "Enter") initWithAI()
+  if (evnt.key === "Enter") initWithAi()
 })
 lmdmBtn.addEventListener("keydown", function (evnt) {
   if (evnt.key === "Enter") colorMode.changeColorMode(evnt)
@@ -132,16 +132,23 @@ function init() {
   buildGame()
 }
 
-function initWithAI() {
+function initWithAi() {
   aiGameMode = true
   buildGame()
 }
 
+function initAiVsAi() {
+  buildGame()
+  while (!winner) {
+    handleAiTurn()
+  }
+}
+
 function buildGame() {
+  board = new Array(9).fill(0)
   turn = 1
   player = -1
   playerName = "Toes"
-  board = [null, null, null, null, null, null, null, null, null]
   winner = null
   preRender()
 }
@@ -156,18 +163,22 @@ function handlePlayerTurn(evnt) {
 }
 
 function handleAiTurn() {
-  nullCells = []
+  emptyCells = []
   board.forEach((cell, idx) => {
     if (!cell) {
-      nullCells.push(idx)
+      emptyCells.push(idx)
     }
   })
-  const aiCellChoice = Math.floor(Math.random() * nullCells.length)
-  processTurn(nullCells[aiCellChoice])
+  const aiCellChoice = Math.floor(Math.random() * emptyCells.length)
+  console.log(playerName)
+  console.log("^^ playerName")
+  console.log(emptyCells[aiCellChoice])
+  console.log("^^ emptyCells[aiCellChoice]")
+  processTurn(emptyCells[aiCellChoice])
 }
 
 function processTurn(evnt) {
-  if (board[evnt] === null) {
+  if (!board[evnt]) {
     board[evnt] = player
     player *= -1
     player === -1 ? (playerName = "Toes") : (playerName = "Fingers")
