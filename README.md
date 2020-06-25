@@ -2,11 +2,7 @@
 
 Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic-tac-toe using emoji. The Must-Have objectives below were the minimum requirements for completing the project, while other project goals were either instructor suggestions or personal goals. Thanks for taking the time to check this out! 🤩
 
----
-
 ## [Play the game here](https://emoji-toe.davidstinson.dev)
-
----
 
 ## Must-Haves 🚲
 
@@ -45,13 +41,13 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 
 ---
 
+## Credits 🙌
+
+- Check out the [Attributions](https://github.com/DavidStinson/emoji-toe/blob/master/Attributations.md).
+
+---
+
 ## Known Issues 💣
 
 - The foot emoji 🦶 (U+1F9B6) requires Unicode/Emoji 11.0, released in 2018. Browsers/OSs that lack support will instead display a missing emoji symbol such as � (U+FFFD) in its place. Technically the game would still be playable under this condition, as long as user is on a device that supports any emoji display, as 👋 (U+1F44B) is part of Unicode 6.0 released in 2010
 - The prefers-color-scheme media query is a relatively new and may not be widely supported, however if used on an unsupported browser none of the functionality of the page will be impacted.
-
----
-
-## Credits 🙌
-
-- Check out the [Attributions](https://github.com/DavidStinson/emoji-toe/blob/master/Attributations.md).
