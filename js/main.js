@@ -170,10 +170,6 @@ function handleAiTurn() {
     }
   })
   const aiCellChoice = Math.floor(Math.random() * emptyCells.length)
-  console.log(playerName)
-  console.log("^^ playerName")
-  console.log(emptyCells[aiCellChoice])
-  console.log("^^ emptyCells[aiCellChoice]")
   processTurn(emptyCells[aiCellChoice])
 }
 
