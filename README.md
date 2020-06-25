@@ -4,6 +4,10 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 
 ---
 
+## [Play the game here](https://emoji-toe.davidstinson.dev)
+
+---
+
 ## Must-Haves 🚲
 
 - [x] Display an empty tic-tac-toe board when the page is initially displayed.
@@ -36,7 +40,7 @@ Welcome to my first project at General Assembly: Emoji-toe, a re-creation of tic
 
 ## Misc To-Dos
 
-- [ ]  Clean-up Confetti Object settings
+- [x]  Clean-up Confetti Object settings
 - [x]  Investigate options for cleaning up CSS
 
 ---
