@@ -8,6 +8,6 @@ emoji-toe uses the Roboto Slab font available from [Google Fonts](https://fonts.
 
 ## Additionally...
 
-emoji-toe uses JoyPixels 5.5 waving hand emoji as favicon and additionally uses waving hand, foot, and angry face with horns emoji as confetti. All can be found at: [Joypixels](https://www.joypixels.com/emoji/v5)
+emoji-toe uses JoyPixels 5.5 waving hand emoji as favicon and additionally uses waving hand, foot, and angry face with horns emoji as confetti. All can be found at: [Joypixels](https://www.joypixels.com/emoji/v5).
   
-emoji-toe uses confetti-js by Gabriel Age to generate celebratory confetti. Found at: [GitHub](https://github.com/Agezao/confetti-js)
+emoji-toe uses confetti-js by Gabriel Age to generate celebratory confetti. Found at: [GitHub](https://github.com/Agezao/confetti-js).
